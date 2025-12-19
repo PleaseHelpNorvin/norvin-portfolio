@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 
-class ProjectController extends Controller
+class ProjectAdminController extends Controller
 {
     //
     public function allProjects()
@@ -17,4 +17,5 @@ class ProjectController extends Controller
     {
         return Project::where('slug', $slug)->firstOrFail();
     }
+
 }

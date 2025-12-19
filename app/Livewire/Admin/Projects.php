@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Livewire\Pages;
+namespace App\Livewire\Admin;
 
 use Livewire\Component;
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectAdminController;
 
 class Projects extends Component
 {
@@ -11,13 +11,12 @@ class Projects extends Component
 
     public function mount()
     {
-        $controller = new ProjectController();
+        $controller = new ProjectAdminController();
         $this->projects = $controller->allProjects();
     }
 
     public function render()
     {
-        return view('livewire.pages.projects')->layout('layouts.app');
+        return view('livewire.admin.projects')->layout('layouts.app');
     }
 }
- 
