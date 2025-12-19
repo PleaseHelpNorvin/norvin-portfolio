@@ -5,6 +5,9 @@ namespace App\Livewire\Admin;
 use Livewire\Component;
 use App\Http\Controllers\ProjectAdminController;
 
+/**
+ * @method \Illuminate\View\View layout(string $layout)
+ */
 class Projects extends Component
 {
     public $projects = [];
@@ -16,7 +19,7 @@ class Projects extends Component
     }
 
     public function render()
-    {
+    { 
         return view('livewire.admin.projects')->layout('layouts.app');
     }
 }
