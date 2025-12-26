@@ -13,6 +13,8 @@
             @guest
                 <a wire:navigate href="{{ route('about') }}" class="hover:text-gray-300">About</a>
                 <a wire:navigate href="{{ route('projects') }}" class="hover:text-gray-300">Projects</a>
+                <a wire:navigate href="{{ route('contact') }}" class="hover:text-gray-300">Contacts</a>
+
             @endguest
 
             @auth

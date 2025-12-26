@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Norvin Portfolio Admin</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <link rel="stylesheet" href="{{ asset('css/pages/home.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/pages/projects.css') }}">
 
     @livewireStyles
 </head>
@@ -25,5 +24,7 @@
     @include('partials.footer')
 
     @livewireScripts
+    <script src="{{ asset('js/letsCollaborate.js') }}"></script>
+
 </body>
 </html>

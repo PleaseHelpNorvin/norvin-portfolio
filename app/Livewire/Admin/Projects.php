@@ -12,10 +12,13 @@ class Projects extends Component
 {
     public $projects = [];
 
+    
+
     public function mount()
     {
         $controller = new ProjectAdminController();
         $this->projects = $controller->allProjects();
+        // dd($this->projects = $controller->allProjects());
     }
 
     public function render()
