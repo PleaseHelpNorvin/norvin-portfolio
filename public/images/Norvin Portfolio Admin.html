@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:8000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norvin Portfolio Admin</title>
+    <link href="./Norvin Portfolio Admin_files/app.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./Norvin Portfolio Admin_files/home.css">
+
+
+    <!-- Livewire Styles --><style>[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}dialog#livewire-error::backdrop {background-color: rgba(0, 0, 0, .6);}</style>
+<style>/* Make clicks pass-through */
+
+    #nprogress {
+      pointer-events: none;
+    }
+
+    #nprogress .bar {
+      background: var(--livewire-progress-bar-color, #29d);
+
+      position: fixed;
+      z-index: 1031;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+    }
+
+    /* Fancy blur effect */
+    #nprogress .peg {
+      display: block;
+      position: absolute;
+      right: 0px;
+      width: 100px;
+      height: 100%;
+      box-shadow: 0 0 10px var(--livewire-progress-bar-color, #29d), 0 0 5px var(--livewire-progress-bar-color, #29d);
+      opacity: 1.0;
+
+      -webkit-transform: rotate(3deg) translate(0px, -4px);
+          -ms-transform: rotate(3deg) translate(0px, -4px);
+              transform: rotate(3deg) translate(0px, -4px);
+    }
+
+    /* Remove these to get rid of the spinner */
+    #nprogress .spinner {
+      display: block;
+      position: fixed;
+      z-index: 1031;
+      top: 15px;
+      right: 15px;
+    }
+
+    #nprogress .spinner-icon {
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+
+      border: solid 2px transparent;
+      border-top-color: var(--livewire-progress-bar-color, #29d);
+      border-left-color: var(--livewire-progress-bar-color, #29d);
+      border-radius: 50%;
+
+      -webkit-animation: nprogress-spinner 400ms linear infinite;
+              animation: nprogress-spinner 400ms linear infinite;
+    }
+
+    .nprogress-custom-parent {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .nprogress-custom-parent #nprogress .spinner,
+    .nprogress-custom-parent #nprogress .bar {
+      position: absolute;
+    }
+
+    @-webkit-keyframes nprogress-spinner {
+      0%   { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes nprogress-spinner {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style></head>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col" data-new-gr-c-s-check-loaded="14.1267.0" data-gr-ext-installed="">
+
+    <header class="bg-gray-900 text-white border-b border-gray-800">
+    <div class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+        <h1 class="font-bold text-lg">
+            <a wire:navigate="" href="http://127.0.0.1:8000/" class="hover:text-gray-300">
+                Norvin Portfolio
+            </a>
+        </h1>
+
+        <nav class="flex gap-4 items-center">
+                            <a wire:navigate="" href="http://127.0.0.1:8000/about" class="hover:text-gray-300">About</a>
+                <a wire:navigate="" href="http://127.0.0.1:8000/projects" class="hover:text-gray-300">Projects</a>
+            
+                    </nav>
+        
+    </div>
+</header>
+
+    <main class="flex-1">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+            <section wire:snapshot="{&quot;data&quot;:[],&quot;memo&quot;:{&quot;id&quot;:&quot;EWqIaxWQBxIVLOk32vTL&quot;,&quot;name&quot;:&quot;pages.home&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;531e4ffb2eca3224a70d89cac856f5dd816105c08e778f960c8b39f328e1b2e4&quot;}" wire:effects="[]" wire:id="EWqIaxWQBxIVLOk32vTL" class="py-20">
+  <div class="grid grid-cols-1 md:grid-cols-2 items-center">
+
+    <!-- Left Column: Text -->
+    <div class="pl-2 md:pl-6 text-center md:text-left">
+      <!-- Hi, I’m with typing effect -->
+    <p class="text-indigo-400 font-medium mb-2 tracking-wide uppercase text-6xl md:text-5xl">
+        <span class="animate-typing">Hi, I’m Norvin <span class="animate-wave text-5xl md:text-6xl">👋</span></span>
+    </p>
+
+      <h2 class="mt-2 text-xl md:text-2xl font-semibold text-gray-300">
+        Full-Stack Web Developer
+      </h2>
+
+      <p class="mt-5 text-gray-400 max-w-lg mx-auto md:mx-0 leading-relaxed">
+        I build modern, scalable web applications using
+        <span class="text-indigo-400 font-semibold">Laravel</span>,
+        <span class="text-indigo-400 font-semibold">Livewire</span>, and
+        <span class="text-indigo-400 font-semibold">Tailwind CSS</span>.
+      </p>
+
+      <div class="mt-8 flex justify-center md:justify-start gap-4">
+        <a class="px-6 py-3 bg-indigo-600 rounded-lg font-medium text-white shadow-lg hover:bg-indigo-500 hover:scale-105 transition transform">
+          View Projects
+        </a>
+        <a class="px-6 py-3 border border-gray-700 rounded-lg font-medium text-gray-300 hover:border-indigo-500 hover:text-indigo-400 transition">
+          Contact Me
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Image -->
+    <div class="flex justify-center md:justify-end">
+      <img src="./Norvin Portfolio Admin_files/dummy_hero_profile.png" alt="Profile Image" class="w-80 h-80 rounded-xl object-cover shadow-2xl">
+    </div>
+
+  </div>
+</section>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-900 text-white-700 p-4 text-center">
+    © 2025 Norvin Portfolio
+</footer>
+
+    <!-- Livewire Scripts -->
+<script src="./Norvin Portfolio Admin_files/livewire.js.download" data-csrf="iNSBbXiiP5BSPUc2S6QHjKamZGvU49AmmyFkpT7q" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+
+
+<scribe-shadow id="crxjs-ext" data-crx="okfkdaglfjjjfefdcppliegebpoegaii" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 2147483647; overflow: visible; visibility: visible;"><template shadowrootmode="open"><div id="root-scribe-elem" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; overflow: visible; color: rgb(21, 24, 30);"><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;"><ol tabindex="-1" class="fixed bottom-auto right-0 top-0 z-[999999] flex max-h-screen w-[400px] max-w-full p-4"></ol></div></div><link rel="stylesheet" href="chrome-extension://okfkdaglfjjjfefdcppliegebpoegaii/assets/style.css"></template></scribe-shadow></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

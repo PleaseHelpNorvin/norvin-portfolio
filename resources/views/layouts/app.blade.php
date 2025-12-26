@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Norvin Portfolio Admin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('css/pages/home.css') }}">
+
 
     @livewireStyles
 </head>
@@ -14,7 +16,10 @@
     @include('partials.navbar')
 
     <main class="flex-1">
-        {{ $slot }}
+
+            {{ $slot }}
+
+
     </main>
 
     @include('partials.footer')

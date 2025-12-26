@@ -1,4 +1,4 @@
-<header class="bg-gray-900 text-white border-b border-gray-800">
+<header class="sticky top-0 z-50 bg-gray-900/80 text-white border-b border-gray-800 backdrop-blur">
     <div class="max-w-6xl mx-auto p-4 flex justify-between items-center">
         <h1 class="font-bold text-lg">
             <a wire:navigate href="{{ route('home') }}" class="hover:text-gray-300">
