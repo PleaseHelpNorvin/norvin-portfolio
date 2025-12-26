@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'role',
         'password',
     ];
 
@@ -38,11 +39,23 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+    
     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'role' => 'integer',
         ];
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 1;
+    }
+
+    public function isUser(): bool
+    {
+        return $this->role === 0;
     }
 }

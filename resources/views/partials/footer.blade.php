@@ -1,3 +1,3 @@
-<footer class="bg-gray-200 text-gray-700 p-4 text-center">
+<footer class="bg-gray-900 text-white-700 p-4 text-center">
     &copy; {{ date('Y') }} Norvin Portfolio
 </footer>
