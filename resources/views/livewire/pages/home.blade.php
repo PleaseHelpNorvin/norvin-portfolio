@@ -1,4 +1,4 @@
-<div class="wrapper mx-auto px-4 sm:px-6 lg:px-8">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <section class=" py-10 bg-gray-950">
     <div class="max-w-6xl mx-auto p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 items-center">
         <!-- Left Column: Text -->
@@ -20,7 +20,7 @@
                 <a wire:navigate href="{{ route('about')}}" class="px-6 py-3 bg-indigo-600 rounded-lg font-medium text-white shadow-lg hover:bg-indigo-500 hover:scale-105 transition transform">
                     Lets Collaborate
                 </a>
-                <a wire:navigate href="{{ route('projects')}}" class="px-6 py-3 border border-gray-700 rounded-lg font-medium text-gray-300 hover:border-indigo-500 hover:text-indigo-400 transition">
+                <a wire:navigate href="{{ route('contact')}}" class="px-6 py-3 border border-gray-700 rounded-lg font-medium text-gray-300 hover:border-indigo-500 hover:text-indigo-400 transition">
                     Contact Me
                 </a>
             </div>
