@@ -18,31 +18,31 @@
         </h1>
 
         <nav class="flex gap-4 items-center">
-@guest
-    <a wire:navigate href="{{ route('about') }}"
-       class="px-2 py-1 transition-all duration-300 
-       {{ $currentRoute === 'about' 
-           ? 'text-indigo-400 glow' 
-           : 'text-gray-300 hover:text-indigo-400 hover:glow' }}">
-        About
-    </a>
+            @guest
+                <a wire:navigate href="{{ route('about') }}"
+                class="px-2 py-1 transition-all duration-300 
+                {{ $currentRoute === 'about' 
+                    ? 'text-indigo-400 glow' 
+                    : 'text-gray-300 hover:text-indigo-400 hover:glow' }}">
+                    About
+                </a>
 
-    <a wire:navigate href="{{ route('projects') }}"
-       class="px-2 py-1 transition-all duration-300 
-       {{ $currentRoute === 'projects' 
-           ? 'text-indigo-400 glow' 
-           : 'text-gray-300 hover:text-indigo-400 hover:glow' }}">
-        Projects
-    </a>
+                <a wire:navigate href="{{ route('projects') }}"
+                class="px-2 py-1 transition-all duration-300 
+                {{ $currentRoute === 'projects' 
+                    ? 'text-indigo-400 glow' 
+                    : 'text-gray-300 hover:text-indigo-400 hover:glow' }}">
+                    Projects
+                </a>
 
-    <a wire:navigate href="{{ route('contact') }}"
-       class="px-2 py-1 transition-all duration-300 
-       {{ $currentRoute === 'contact' 
-           ? 'text-indigo-400 glow' 
-           : 'text-gray-300 hover:text-indigo-400 hover:glow' }}">
-        Contacts
-    </a>
-@endguest
+                <a wire:navigate href="{{ route('contact') }}"
+                class="px-2 py-1 transition-all duration-300 
+                {{ $currentRoute === 'contact' 
+                    ? 'text-indigo-400 glow' 
+                    : 'text-gray-300 hover:text-indigo-400 hover:glow' }}">
+                    Contacts
+                </a>
+            @endguest
 
 
             @auth

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectAdminController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\ContactController;
 use App\Livewire\Pages\Home;
 use App\Livewire\Auth\Login;
 use App\Livewire\Pages\About;
@@ -26,6 +26,8 @@ Route::get('/about', About::class)->name('about');
 Route::get('/projects', Projects::class)->name('projects');
 Route::get('/projects/{project}', ProjectShow::class)->name('projects.show');
 Route::get('/Contact', Contact::class)->name('contact');
+Route::post('/Contact', [ContactController::class, 'send'])->name('contact.send');
+
 /*
 |--------------------------------------------------------------------------
 | AUTH ROUTES (excluded in AdminOnly middleware)
