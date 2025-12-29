@@ -19,33 +19,29 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     @foreach($projects as $project)
                         <!-- Flip Card -->
-                        <div class="flip-card perspective h-64 md:h-72 lg:h-80">
-                            <div class="flip-card perspective h-64 md:h-72 lg:h-80">
-                                <div class="flip-card-inner relative w-full h-full transition-transform duration-700">
-                                    <!-- Front -->
-                                    <div class="flip-card-front absolute w-full h-full backface-hidden rounded-lg overflow-hidden">
-                                        <img src="{{ asset('images/dummy_hero_profile.png') }}" 
-                                            alt="{{ $project->name }}" 
-                                            class="w-full h-full object-cover">
-                                        <div class="absolute bottom-0 left-0 right-0 bg-gray-900 bg-opacity-70 p-4">
-                                            <h3 class="text-xl font-semibold text-white">{{ $project->name }}</h3>
-                                        </div>
-                                    </div>
-
-                                    <!-- Back -->
-                                    <div class="flip-card-back absolute w-full h-full backface-hidden rotate-y-180 bg-gray-900 flex flex-col justify-center items-center p-4 rounded-lg">
-                                        <p class="text-gray-400 mb-2 text-center">{{ $project->description }}</p>
-                                        <p class="text-indigo-400 mb-2 text-center">Tech Stack: {{ $project->tech_stack }}</p>
-                                        @if($project->demo_url)
-                                            <a href="{{ $project->demo_url }}" target="_blank" 
-                                            class="text-indigo-500 hover:underline mt-2">
-                                                View Demo
-                                            </a>
-                                        @endif
+                        <div class="flip-card h-64 md:h-72 lg:h-80">
+                            <div class="flip-card-inner">
+                                <!-- Front -->
+                                <div class="flip-card-front">
+                                    <img src="{{ asset('images/dummy_hero_profile.png') }}" 
+                                        alt="{{ $project->name }}" 
+                                        class="w-full h-full object-cover rounded-lg">
+                                    <div class="absolute bottom-0 left-0 right-0 bg-gray-900 bg-opacity-70 p-4 rounded-b-lg">
+                                        <h3 class="text-xl font-semibold text-white">{{ $project->name }}</h3>
                                     </div>
                                 </div>
-                            </div>
 
+                                <!-- Back -->
+                                <div class="flip-card-back">
+                                    <p class="text-gray-400 mb-2 text-center">{{ $project->description }}</p>
+                                    <p class="text-indigo-400 mb-2 text-center">Tech Stack: {{ $project->tech_stack }}</p>
+                                    @if($project->demo_url)
+                                        <a href="{{ $project->demo_url }}" target="_blank" class="text-indigo-500 hover:underline mt-2">
+                                            View Demo
+                                        </a>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>

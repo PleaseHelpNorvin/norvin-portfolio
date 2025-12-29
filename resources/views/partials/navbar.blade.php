@@ -1,21 +1,49 @@
+@php
+    $currentRoute = Route::currentRouteName();
+@endphp
+
 <header class="sticky top-0 z-50 bg-gray-900/80 text-white border-b border-gray-800 backdrop-blur">
     <div class="max-w-6xl mx-auto p-4 flex justify-between items-center">
         <h1 class="font-bold text-lg">
-            <a wire:navigate href="{{ route('home') }}" class="hover:text-gray-300">
-                {{ auth()->check() && auth()->user()->isAdmin()
-                    ? 'Norvin Portfolio Admin'
-                    : 'Norvin Portfolio'
-                }}
-            </a>
+            <a wire:navigate href="{{ route('home') }}" 
+                        class="px-2 py-1 transition-all duration-300 
+                        {{ $currentRoute === 'home' 
+                            ? 'text-indigo-400 glow' 
+                            : 'hover:text-gray-300' }}">
+                            {{ auth()->check() && auth()->user()->isAdmin()
+                                ? 'Norvin Crujido Admin'
+                                : 'Norvin Crujido'
+                            }}
+                        </a>
         </h1>
 
         <nav class="flex gap-4 items-center">
-            @guest
-                <a wire:navigate href="{{ route('about') }}" class="hover:text-gray-300">About</a>
-                <a wire:navigate href="{{ route('projects') }}" class="hover:text-gray-300">Projects</a>
-                <a wire:navigate href="{{ route('contact') }}" class="hover:text-gray-300">Contacts</a>
+@guest
+    <a wire:navigate href="{{ route('about') }}"
+       class="px-2 py-1 transition-all duration-300 
+       {{ $currentRoute === 'about' 
+           ? 'text-indigo-400 glow' 
+           : 'text-gray-300 hover:text-indigo-400 hover:glow' }}">
+        About
+    </a>
 
-            @endguest
+    <a wire:navigate href="{{ route('projects') }}"
+       class="px-2 py-1 transition-all duration-300 
+       {{ $currentRoute === 'projects' 
+           ? 'text-indigo-400 glow' 
+           : 'text-gray-300 hover:text-indigo-400 hover:glow' }}">
+        Projects
+    </a>
+
+    <a wire:navigate href="{{ route('contact') }}"
+       class="px-2 py-1 transition-all duration-300 
+       {{ $currentRoute === 'contact' 
+           ? 'text-indigo-400 glow' 
+           : 'text-gray-300 hover:text-indigo-400 hover:glow' }}">
+        Contacts
+    </a>
+@endguest
+
 
             @auth
                 @if(auth()->user()->isAdmin())
