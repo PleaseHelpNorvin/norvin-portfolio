@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('description');     // Project description
             $table->string('tech_stack')->nullable(); // Technologies used
             $table->string('demo_url')->nullable();  // Optional embedded demo URL
+            $table->string('project_tier')->default('basic');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

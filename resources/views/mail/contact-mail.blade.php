@@ -2,8 +2,9 @@
 # Introduction
 
 
-**Name:** {{ $data['name'] }}  
-**Email:** {{ $data['email'] }}
+**Name:** {{ $data['name'] }}<br>
+**Email:** {{ $data['email'] }}<br>
+**Contact:** {{ $data['contactNumber'] ?? 'N/A' }}
 
 ---
 

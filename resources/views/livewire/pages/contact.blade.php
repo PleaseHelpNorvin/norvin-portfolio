@@ -21,21 +21,35 @@
         <!-- Contact Form -->
         <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800">
             <h3 class="text-2xl font-semibold text-indigo-400 mb-6 text-center">Send Me a Message</h3>
-            <form action="{{ route('contact.send') }}" method="POST" class="space-y-5">
+            <form wire:submit.prevent="submit" class="space-y-5">
                 @csrf
-                <input type="text" name="name" placeholder="Your Name" required
+                <input type="text" wire:model="name" placeholder="Your Name" required
                     class="w-full px-5 py-3 rounded-xl bg-gray-800 border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
 
-                <input type="email" name="email" placeholder="Your Email" required
+                <input type="email" wire:model="email" placeholder="Your Email" required
                     class="w-full px-5 py-3 rounded-xl bg-gray-800 border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
 
-                <textarea name="message" rows="5" placeholder="Your Message" required
+                <input type="tel" wire:model="contactNumber" placeholder="Your Contact Number (optional)"
+                    class="w-full px-5 py-3 rounded-xl bg-gray-800 border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
+
+                <textarea wire:model="message" rows="5" placeholder="Your Message" required
                     class="w-full px-5 py-3 rounded-xl bg-gray-800 border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"></textarea>
 
-                <button type="submit"
-                    class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 rounded-xl transition duration-300 shadow-lg hover:shadow-indigo-500/50">
-                    Send Message
-                </button>
+                    <button type="submit" 
+                        wire:loading.attr="disabled" 
+                        wire:target="submit"
+                        class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 rounded-xl transition duration-300 shadow-lg hover:shadow-indigo-500/50 flex items-center justify-center">
+
+                        <!-- Spinner only while submitting -->
+                        <svg wire:loading wire:target="submit" class="animate-spin h-4 w-4 text-white mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                        </svg>
+
+                        <!-- Button text changes while submitting -->
+                        <span wire:loading.remove wire:target="submit">Send Message</span>
+                        <span wire:loading wire:target="submit">Sending...</span>
+                    </button>
             </form>
 
             <!-- Social Icons -->

@@ -51,9 +51,13 @@ html {
   transform: rotateY(180deg);
   background-color: #1f2937; /* bg-gray-900 */
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: flex-start; /* top align content instead of center */
+  align-items: flex-start;     /* left align text */
+  padding: 1rem;               /* add padding inside card */
+  overflow-y: auto;            /* allow scrolling if too long */
+  border-radius: 0.5rem;
+  text-align: center;
 }
 
 .glow {

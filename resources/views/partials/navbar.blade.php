@@ -47,8 +47,11 @@
 
             @auth
                 @if(auth()->user()->isAdmin())
-                    <a wire:navigate href="{{ route('admin.projects') }}" class="hover:text-gray-300">Projects</a>
-                    <a wire:navigate href="{{ route('admin.projects.create') }}" class="hover:text-gray-300">Add Project</a>
+                    <a wire:navigate href="{{ route('admin.projects') }}" class="px-2 py-1 transition-all duration-300 
+                {{ $currentRoute === 'admin.projects' 
+                    ? 'text-indigo-400 glow' 
+                    : 'text-gray-300 hover:text-indigo-400 hover:glow' }}">Projects</a>
+                    <!-- <a wire:navigate href="{{ route('admin.projects.create') }}" class="hover:text-gray-300">Add Project</a> -->
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
