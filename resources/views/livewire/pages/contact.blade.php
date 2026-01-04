@@ -50,6 +50,15 @@
                         <span wire:loading.remove wire:target="submit">Send Message</span>
                         <span wire:loading wire:target="submit">Sending...</span>
                     </button>
+
+                    <div class="mt-4 flex justify-center">
+                        {!! NoCaptcha::display() !!}
+                        @error('g-recaptcha-response') 
+                            <span class="text-red-500 text-sm">{{ $message }}</span> 
+                        @enderror
+                    </div>
+
+                    {!! NoCaptcha::renderJs() !!}
             </form>
 
             <!-- Social Icons -->

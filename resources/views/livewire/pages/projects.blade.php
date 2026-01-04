@@ -1,8 +1,8 @@
 <div>
     <!-- Hero Intro -->
-    <section class="py-20 bg-gray-950">
+    <section class="py-12 bg-gray-950">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <p class="text-gray-400 text-lg md:text-xl">
+            <p class="text-gray-400 text-lg text-indigo-400 md:text-xl">
                 Check out some of my recent projects below and see what I’ve been working on.
             </p>
         </div>
@@ -11,7 +11,7 @@
 
 
     <!-- Projects Grid -->
-    <section class="py-12">
+    <section class="">
         
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-2xl font-bold mb-6 text-white">My Projects</h2>
