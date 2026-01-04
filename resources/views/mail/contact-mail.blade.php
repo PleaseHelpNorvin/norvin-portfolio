@@ -1,22 +1,24 @@
 <x-mail::message>
-# Introduction
-
-
-**Name:** {{ $data['name'] }}<br>
-**Email:** {{ $data['email'] }}<br>
-**Contact:** {{ $data['contactNumber'] ?? 'N/A' }}
+# 📩 New Contact Message
 
 ---
 
-**Message:**  
-{{ $data['message'] }}
+### 👤 Sender Details
+- **Name:** {{ $data['name'] }}
+- **Email:** {{ $data['email'] }}
+- **Contact:** {{ $data['contactNumber'] ?? 'N/A' }}
 
 ---
 
-<!-- <x-mail::button :url="''">
-Button Text
-</x-mail::button> -->
+### 💬 Message
+> {{ $data['message'] }}
 
-Thanks,<br>
-{{ config('app.name') }}
+---
+
+<x-mail::panel>
+This message was sent from your portfolio contact form.
+</x-mail::panel>
+
+Thanks,  
+**{{ config('app.name') }}**
 </x-mail::message>
