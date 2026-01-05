@@ -55,3 +55,19 @@ then
 php artisan migrate
 php artisan db:seed
 php artisan storage:link
+
+permissions:
+
+cd /var/www/html
+
+# Make SQLite database writable by PHP
+chown www-data:www-data database/database.sqlite
+chmod 664 database/database.sqlite
+
+# Make database folder writable (needed for locks/temp)
+chown -R www-data:www-data database
+chmod -R 775 database
+
+# Make storage and cache writable for Livewire
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
