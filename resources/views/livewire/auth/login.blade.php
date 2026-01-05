@@ -1,45 +1,41 @@
+<div class="max-w-md mx-auto mt-16 p-6 border border-indigo-400 rounded shadow-lg">
+    <h1 class="text-2xl font-bold mb-6 text-center text-indigo-400">Admin Login</h1>
 
-<div class="max-w-md mx-auto mt-16 p-6 border rounded shadow-lg">
-    <h1 class="text-2xl font-bold mb-6 text-center">Admin Login</h1>
+    @if($errors->has('email'))
+        <p class="text-red-600 text-center mb-4">{{ $errors->first('email') }}</p>
+    @endif
 
-    <form method="POST" action="{{ url('/login') }}">
-        @csrf
-
+    <form wire:submit.prevent="login">
         <!-- Email -->
         <div class="mb-4">
-            <label class="block mb-1 font-semibold" for="email">Email</label>
+            <label class="block mb-1 font-semibold text-indigo-400" for="email">Email</label>
             <input
                 type="email"
                 id="email"
-                name="email"
-                value="{{ old('email') }}"
+                wire:model.defer="email"
                 required
                 autofocus
-                class="w-full border px-3 py-2 rounded @error('email') border-red-500 @enderror"
+                class="w-full border border-indigo-400 px-3 py-2 rounded text-indigo-400 bg-gray-900 placeholder-indigo-400 @error('email') border-red-500 @enderror"
+                placeholder="Enter your email"
             >
-            @error('email')
-                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-            @enderror
         </div>
 
         <!-- Password -->
         <div class="mb-4">
-            <label class="block mb-1 font-semibold" for="password">Password</label>
+            <label class="block mb-1 font-semibold text-indigo-400" for="password">Password</label>
             <input
                 type="password"
                 id="password"
-                name="password"
+                wire:model.defer="password"
                 required
-                class="w-full border px-3 py-2 rounded @error('password') border-red-500 @enderror"
+                class="w-full border border-indigo-400 px-3 py-2 rounded text-indigo-400 bg-gray-900 placeholder-indigo-400 @error('password') border-red-500 @enderror"
+                placeholder="Enter your password"
             >
-            @error('password')
-                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-            @enderror
         </div>
 
         <button
             type="submit"
-            class="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
+            class="w-full bg-black text-white py-2 rounded hover:bg-indigo-400 transition"
         >
             Login
         </button>

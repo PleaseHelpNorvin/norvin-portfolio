@@ -7,13 +7,13 @@
 
         {{-- Logo --}}
         <h1 class="font-bold text-lg">
-            <a href="{{ route('home') }}" wire:click="closeMobile"
+            <a wire:navigate="{{ route('home') }}" wire:click="closeMobile"
             class="px-2 py-1 transition-all duration-300
             {{ $currentRoute === 'home' ? 'text-indigo-400 glow' : 'hover:text-gray-300' }}">
                 {{ auth()->check() && auth()->user()->isAdmin() ? 'Norvin Crujido Admin' : 'Norvin Crujido' }}
             </a>
         </h1>
-        
+
         {{-- Burger (mobile only) --}}
         <button wire:click="toggleMobile"
                 class="md:hidden text-gray-300 hover:text-white focus:outline-none">
