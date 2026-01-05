@@ -25,3 +25,13 @@ chmod -R 775 storage bootstrap/cache
 Install Composer dependencies again:
 
 composer install --no-dev --optimize-autoloader
+
+
+on SSH:
+
+we need to explicitly call the docker-compose.yml path to build i think the same with making it down
+
+sudo /usr/local/bin/docker-compose -f /home/two2/data/norvin/norvin-portfolio/docker-compose.yml up -d --build
+
+
+sudo docker-compose up -d --build
