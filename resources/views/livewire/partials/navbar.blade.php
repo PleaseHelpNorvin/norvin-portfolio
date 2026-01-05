@@ -85,7 +85,7 @@
     <div class="md:hidden overflow-hidden transition-all duration-300
                 {{ $mobileOpen ? 'max-h-96' : 'max-h-0' }}">
 
-        <div class="px-4 pb-4 flex flex-col gap-3 bg-gray-900 border-t border-gray-800">
+        <div class="px-4 pb-4 pt-4 flex flex-col gap-3 bg-gray-900 border-t border-gray-800">
 
             @guest
                 <a wire:navigate wire:click="closeMobile"

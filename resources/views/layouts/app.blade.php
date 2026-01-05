@@ -12,8 +12,8 @@
 </head>
 <body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col">
 
-    @include('partials.navbar')
-
+    <livewire:partials.navbar />
+    
     <main class="flex-1">
 
             {{ $slot }}

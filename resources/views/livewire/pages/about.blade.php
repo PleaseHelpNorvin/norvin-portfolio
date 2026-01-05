@@ -131,39 +131,43 @@
             </div>
 
             <!-- Certificates Grid -->
-<div class="flex justify-center">
-    <div class="grid gap-6"
-         style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 900px;">
-        
-        <!-- Certificate Card 1 -->
-        <div class="group bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-indigo-500 transition cursor-pointer">
-            <div class="relative overflow-hidden">
-                <img src="{{ asset('images/certificates/NorvinCertipng.png') }}" 
-                     alt="Certificate" 
-                     class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300 certificate-img" />
-            </div>
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-white mb-1">BEST IN MULTI-PLATFORM PROGRAMMING</h3>
-                <p class="text-sm text-gray-400">Received this award during my college capstone year, 2024</p>
+            <div class="flex justify-center">
+        <div class="grid gap-6
+                    grid-cols-1
+                    sm:grid-cols-2
+                    lg:grid-cols-3
+                    max-w-[900px]
+                    mx-auto">
+                    <!-- Certificate Card 1 -->
+                    <div class="group bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-indigo-500 transition cursor-pointer">
+                        <div class="relative overflow-hidden">
+                            <img src="{{ asset('images/certificates/NorvinCertipng.png') }}" 
+                                alt="Certificate" 
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300 certificate-img" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-1">BEST IN MULTI-PLATFORM PROGRAMMING</h3>
+                            <p class="text-sm text-gray-400">Received this award during my college capstone year, 2024</p>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Card 2 -->
+                    <div class="group bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-indigo-500 transition cursor-pointer">
+                        <div class="relative overflow-hidden">
+                            <img src="{{ asset('images/certificates/NorvinGradCerti.png') }}" 
+                                alt="Certificate" 
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300 certificate-img" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-1">CERTIFICATE OF GRADUATION</h3>
+                            <p class="text-sm text-gray-400">Received this award during my college Graduation, 2024</p>
+                        </div>
+                    </div>
+
+                    
+                </div>
             </div>
         </div>
-
-        <!-- Certificate Card 2 -->
-        <div class="group bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-indigo-500 transition cursor-pointer">
-            <div class="relative overflow-hidden">
-                <img src="{{ asset('images/certificates/NorvinGradCerti.png') }}" 
-                     alt="Certificate" 
-                     class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300 certificate-img" />
-            </div>
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-white mb-1">CERTIFICATE OF GRADUATION</h3>
-                <p class="text-sm text-gray-400">Received this award during my college Graduation, 2024</p>
-            </div>
-        </div>
-
-        
-    </div>
-</div>        </div>
     </section>
 
     <div id="imgModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">

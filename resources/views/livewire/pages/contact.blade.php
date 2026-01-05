@@ -23,17 +23,37 @@
             <h3 class="text-2xl font-semibold text-indigo-400 mb-6 text-center">Send Me a Message</h3>
             <form wire:submit.prevent="submit" class="space-y-5">
                 @csrf
-                <input type="text" wire:model="name" placeholder="Your Name" required
+                <input type="text" wire:model="name" placeholder="Your Name" 
                     class="w-full px-5 py-3 rounded-xl bg-gray-800 border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
 
-                <input type="email" wire:model="email" placeholder="Your Email" required
+                <input type="email" wire:model="email" placeholder="Your Email" 
                     class="w-full px-5 py-3 rounded-xl bg-gray-800 border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
 
                 <input type="tel" wire:model="contactNumber" placeholder="Your Contact Number (optional)"
                     class="w-full px-5 py-3 rounded-xl bg-gray-800 border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
 
-                <textarea wire:model="message" rows="5" placeholder="Your Message" required
+                <textarea wire:model="message" rows="5" placeholder="Your Message" 
                     class="w-full px-5 py-3 rounded-xl bg-gray-800 border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"></textarea>
+                
+                <!-- CAPTCHA -->
+                <div class="mt-4">
+                    <label class="block text-gray-300 font-medium mb-2">Captcha: <span class="text-indigo-400 font-semibold">{{ $captchaQuestion }}</span></label>
+
+                    <div class="flex items-center space-x-3">
+                        <input type="text" wire:model.defer="captchaInput" placeholder="Type the answer"
+                            class="flex-1 px-4 py-2 rounded-xl bg-gray-800 border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
+
+                        <button type="button" wire:click="generateCaptcha"
+                            class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-xl transition duration-300">
+                            Refresh
+                        </button>
+                    </div>
+
+                    @error('captchaInput')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                    @enderror
+                </div>
+
 
                     <button type="submit" 
                         wire:loading.attr="disabled" 
@@ -51,14 +71,7 @@
                         <span wire:loading wire:target="submit">Sending...</span>
                     </button>
 
-                    <div class="mt-4 flex justify-center">
-                        {!! NoCaptcha::display() !!}
-                        @error('g-recaptcha-response') 
-                            <span class="text-red-500 text-sm">{{ $message }}</span> 
-                        @enderror
-                    </div>
 
-                    {!! NoCaptcha::renderJs() !!}
             </form>
 
             <!-- Social Icons -->

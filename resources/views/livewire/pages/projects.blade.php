@@ -13,7 +13,7 @@
     <!-- Projects Grid -->
     <section class="">
         
-        <div class="max-w-6xl mx-auto px-4">
+        <div class="pb-10 max-w-6xl mx-auto px-4">
             <h2 class="text-2xl font-bold mb-6 text-white">My Projects</h2>
 
             <select wire:change="setFilter($event.target.value)" class=" mb-6 p-2 rounded bg-gray-800 text-white ...">
