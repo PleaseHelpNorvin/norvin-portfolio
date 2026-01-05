@@ -179,7 +179,7 @@
                 <div class="group relative flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-1">
                     <div class="absolute inset-0 rounded-full bg-purple-500/40 blur-xl opacity-0 group-hover:opacity-100 transition"></div>
                     <div class="relative z-10 p-3 rounded-full">
-                        <img src="{{ asset('images/tech_stack/dotnet.png') }}"
+                        <img src="{{ asset('images/tech_stack/dotnet.PNG') }}"
                             class="h-9 md:h-10 grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition" />
                     </div>
                     <span class="mt-2 text-xs text-gray-400 group-hover:text-white transition">
@@ -191,7 +191,7 @@
                 <div class="group relative flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-1">
                     <div class="absolute inset-0 rounded-full bg-blue-500/40 blur-xl opacity-0 group-hover:opacity-100 transition"></div>
                     <div class="relative z-10 p-3 rounded-full">
-                        <img src="{{ asset('images/tech_stack/mysql.png') }}"
+                        <img src="{{ asset('images/tech_stack/mysql.PNG') }}"
                             class="h-9 md:h-10 grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition" />
                     </div>
                     <span class="mt-2 text-xs text-gray-400 group-hover:text-white transition">
