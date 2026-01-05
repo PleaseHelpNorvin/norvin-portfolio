@@ -18,6 +18,15 @@ class Navbar extends Component
         $this->mobileOpen = false;
     }
 
+    public function logout()
+    {
+        auth()->logout();
+        session()->invalidate();
+        session()->regenerateToken();
+        return redirect()->route('home');
+    }
+
+
     public function render()
     {
         return view('livewire.partials.navbar');

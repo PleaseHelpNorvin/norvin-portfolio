@@ -35,3 +35,23 @@ sudo /usr/local/bin/docker-compose -f /home/two2/data/norvin/norvin-portfolio/do
 
 
 sudo docker-compose up -d --build
+
+apt-get update
+apt-get install nano -y
+
+
+never forget to permissions
+
+# Storage & cache
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+
+# SQLite database
+touch database/database.sqlite
+chown www-data:www-data database/database.sqlite
+chmod 664 database/database.sqlite
+
+then
+php artisan migrate
+php artisan db:seed
+php artisan storage:link

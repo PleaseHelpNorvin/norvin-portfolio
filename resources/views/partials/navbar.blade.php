@@ -7,19 +7,13 @@
 
         {{-- Logo --}}
         <h1 class="font-bold text-lg">
-            <a wire:navigate href="{{ route('home') }}"
-               wire:click="closeMobile"
-               class="px-2 py-1 transition-all duration-300
-               {{ $currentRoute === 'home'
-                    ? 'text-indigo-400 glow'
-                    : 'hover:text-gray-300' }}">
-                {{ auth()->check() && auth()->user()->isAdmin()
-                    ? 'Norvin Crujido Admin'
-                    : 'Norvin Crujido'
-                }}
+            <a href="{{ route('home') }}" wire:click="closeMobile"
+            class="px-2 py-1 transition-all duration-300
+            {{ $currentRoute === 'home' ? 'text-indigo-400 glow' : 'hover:text-gray-300' }}">
+                {{ auth()->check() && auth()->user()->isAdmin() ? 'Norvin Crujido Admin' : 'Norvin Crujido' }}
             </a>
         </h1>
-
+        
         {{-- Burger (mobile only) --}}
         <button wire:click="toggleMobile"
                 class="md:hidden text-gray-300 hover:text-white focus:outline-none">
@@ -34,7 +28,7 @@
         <nav class="hidden md:flex gap-4 items-center">
 
             @guest
-                <a wire:navigate href="{{ route('about') }}"
+                <a href="{{ route('about') }}"
                    class="px-2 py-1 transition-all duration-300
                    {{ $currentRoute === 'about'
                         ? 'text-indigo-400 glow'
@@ -42,7 +36,7 @@
                     About
                 </a>
 
-                <a wire:navigate href="{{ route('projects') }}"
+                <a href="{{ route('projects') }}"
                    class="px-2 py-1 transition-all duration-300
                    {{ $currentRoute === 'projects'
                         ? 'text-indigo-400 glow'
@@ -50,7 +44,7 @@
                     Projects
                 </a>
 
-                <a wire:navigate href="{{ route('contact') }}"
+                <a href="{{ route('contact') }}"
                    class="px-2 py-1 transition-all duration-300
                    {{ $currentRoute === 'contact'
                         ? 'text-indigo-400 glow'
@@ -61,7 +55,7 @@
 
             @auth
                 @if(auth()->user()->isAdmin())
-                    <a wire:navigate href="{{ route('admin.projects') }}"
+                    <a href="{{ route('admin.projects') }}"
                        class="px-2 py-1 transition-all duration-300
                        {{ $currentRoute === 'admin.projects'
                             ? 'text-indigo-400 glow'
@@ -69,12 +63,11 @@
                         Projects
                     </a>
 
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button class="bg-gray-100 text-black px-3 py-1 rounded hover:bg-gray-300">
-                            Logout
-                        </button>
-                    </form>
+                    {{-- Logout via Livewire --}}
+                    <button wire:click="logout"
+                            class="bg-gray-100 text-black px-3 py-1 rounded hover:bg-gray-300">
+                        Logout
+                    </button>
                 @endif
             @endauth
 
@@ -88,20 +81,20 @@
         <div class="px-4 pb-4 flex flex-col gap-3 bg-gray-900 border-t border-gray-800">
 
             @guest
-                <a wire:navigate wire:click="closeMobile"
-                   href="{{ route('about') }}"
+                <a href="{{ route('about') }}"
+                   wire:click="closeMobile"
                    class="text-gray-300 hover:text-indigo-400">
                     About
                 </a>
 
-                <a wire:navigate wire:click="closeMobile"
-                   href="{{ route('projects') }}"
+                <a href="{{ route('projects') }}"
+                   wire:click="closeMobile"
                    class="text-gray-300 hover:text-indigo-400">
                     Projects
                 </a>
 
-                <a wire:navigate wire:click="closeMobile"
-                   href="{{ route('contact') }}"
+                <a href="{{ route('contact') }}"
+                   wire:click="closeMobile"
                    class="text-gray-300 hover:text-indigo-400">
                     Contacts
                 </a>
@@ -109,18 +102,16 @@
 
             @auth
                 @if(auth()->user()->isAdmin())
-                    <a wire:navigate wire:click="closeMobile"
-                       href="{{ route('admin.projects') }}"
+                    <a href="{{ route('admin.projects') }}"
+                       wire:click="closeMobile"
                        class="text-gray-300 hover:text-indigo-400">
                         Admin Projects
                     </a>
 
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button class="text-left text-red-400 hover:text-red-300">
-                            Logout
-                        </button>
-                    </form>
+                    <button wire:click="logout"
+                            class="text-left text-red-400 hover:text-red-300">
+                        Logout
+                    </button>
                 @endif
             @endauth
 
