@@ -17,12 +17,12 @@ class Projects extends Component
 
     public function loadProjects()
     {
-        if ($this->filter === 'all') {
-            $this->projects = Project::all();
-        } else {
-            $tierEnum = ProjectTier::from($this->filter);
-            $this->projects = Project::where('project_tier', $tierEnum->value)->get();
-        }
+        $this->projects = $this->filter === 'all'
+            ? Project::all()
+            : Project::where(
+                'project_tier',
+                ProjectTier::from($this->filter)->value
+              )->get();
     }
 
     public function setFilter($tier)
