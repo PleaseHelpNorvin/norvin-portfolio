@@ -71,3 +71,5 @@ chmod -R 775 database
 # Make storage and cache writable for Livewire
 chown -R www-data:www-data storage bootstrap/cache
 chmod -R 775 storage bootstrap/cache
+
+sudo certbot --nginx -d norvin.twoguysbuilders.co -d www.norvin.twoguysbuilders.co
