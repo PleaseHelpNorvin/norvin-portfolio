@@ -22,7 +22,7 @@
         <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800">
             <h3 class="text-2xl font-semibold text-indigo-400 mb-6 text-center">Send Me a Message</h3>
             <form wire:submit.prevent="submit" class="space-y-5">
-                @csrf
+        
                 <input type="text" wire:model="name" placeholder="Your Name" 
                     class="w-full px-5 py-3 rounded-xl bg-gray-800 border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
 

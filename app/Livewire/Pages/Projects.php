@@ -12,7 +12,7 @@ class Projects extends Component
 
     public function mount()
     {
-        $this->projects = Project::all();
+        $this->loadProjects();
     }
 
     public function loadProjects()
