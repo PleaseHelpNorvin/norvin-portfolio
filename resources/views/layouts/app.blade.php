@@ -17,18 +17,14 @@
    @include('partials.navbar')
 
     <main class="flex-1">
-
-            {{ $slot }}
-
-
+        {{ $slot }}
     </main>
 
     @include('partials.footer')
 
     @livewireScripts
-    <script src="{{ asset('js/about.js') }}"></script>
-
-    <script src="{{ asset('js/letsCollaborate.js') }}"></script>
+    <script src="{{ asset('js/about.js') }}" defer></script>
+    <script src="{{ asset('js/letsCollaborate.js') }}" defer></script>
 
 </body>
 </html>

@@ -9,11 +9,13 @@ use App\Services\CaptchaService;
 
 class Contact extends Component
 {
+    // Form fields
     public string $name = '';
     public string $email = '';
     public ?string $contactNumber = null;
     public string $message = '';
 
+    // Captcha
     public string $captchaInput = '';
     public string $captchaQuestion = '';
 
@@ -23,49 +25,59 @@ class Contact extends Component
         'message' => 'required|string',
         'captchaInput' => 'required|string',
     ];
-    public function generateCaptcha(CaptchaService $captcha)
+
+    public function mount(CaptchaService $captcha)
+    {
+        $this->setCaptcha($captcha);
+    }
+
+    /**
+     * SAFE: service resolved per request
+     */
+    protected function setCaptcha(CaptchaService $captcha): void
     {
         $data = $captcha->generate();
         $this->captchaQuestion = $data['question'];
         $this->captchaInput = '';
     }
 
-    public function mount(CaptchaService $captcha)
+    /**
+     * Called by wire:click
+     */
+    public function generateCaptcha()
     {
-        $this->generateCaptcha($captcha);
+        $this->setCaptcha(app(CaptchaService::class));
     }
 
-    public function submit(ContactService $service, CaptchaService $captcha)
+    /**
+     * Called by wire:submit
+     */
+    public function submit(ContactService $service)
     {
         $this->validate();
 
-        if(!$captcha->verify($this->captchaInput)) 
-        {
+        $captcha = app(CaptchaService::class);
+
+        if (! $captcha->verify($this->captchaInput)) {
             $this->addError('captchaInput', 'Captcha answer is incorrect.');
-            $this->generateCaptcha($captcha);
-            $this->captchaInput = '';
+            $this->setCaptcha($captcha);
             return;
         }
 
-        $dto = new ContactData(
+        $service->send(new ContactData(
             $this->name,
             $this->email,
             $this->contactNumber,
             $this->message
-        );
+        ));
 
-        $service->send($dto);
-
-        $this->reset(['name', 'email', 'contactNumber', 'message', 'captchaInput']);
         session()->flash('success', 'Message sent successfully!');
-
-        $this->generateCaptcha($captcha);
-
+        return redirect()->route('contact');
     }
-
 
     public function render()
     {
-        return view('livewire.pages.contact')->layout('layouts.app');
+        return view('livewire.pages.contact')
+            ->layout('layouts.app');
     }
 }

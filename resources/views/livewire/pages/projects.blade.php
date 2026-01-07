@@ -8,15 +8,13 @@
         </div>
     </section>
 
-
-
     <!-- Projects Grid -->
-    <section class="">
-        
+    <section>
         <div class="pb-10 max-w-6xl mx-auto px-4">
             <h2 class="text-2xl font-bold mb-6 text-white">My Projects</h2>
 
-            <select wire:change="setFilter($event.target.value)" class=" mb-6 p-2 rounded bg-gray-800 text-white ...">
+            <!-- Filter Dropdown -->
+            <select wire:model.live="filter" class="mb-6 p-2 rounded bg-gray-800 text-white">
                 <option value="all">All Tiers</option>
                 <option value="basic">Basic</option>
                 <option value="intermediate">Intermediate</option>
@@ -48,7 +46,7 @@
                                     </h3>
                                     <p class="mb-2 break-words whitespace-normal">{{ $project->description }}</p>
                                     <p class="text-indigo-400 mb-2">Tech Stack: {{ $project->tech_stack }}</p>
-                                    <p class="text-indigo-300 mb-2">Tier: {{ ($project->project_tier) }}</p>
+                                    <p class="text-indigo-300 mb-2">Tier: {{ $project->project_tier }}</p>
                                     @if($project->demo_url)
                                         <a href="{{ $project->demo_url }}" target="_blank" class="text-indigo-500 hover:underline mt-2">
                                             View Demo

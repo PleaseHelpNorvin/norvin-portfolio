@@ -5,30 +5,36 @@ namespace App\Livewire\Pages;
 use Livewire\Component;
 use App\Models\Project;
 use App\Enums\ProjectTier;
+use Illuminate\Support\Facades\Log;
+
 class Projects extends Component
 {
-    public $projects;
-    public $filter = "all";
+    public $projects = [];
+    public $filter = 'all'; // default filter
 
     public function mount()
     {
         $this->loadProjects();
     }
 
-    public function loadProjects()
+    // Called automatically when $filter changes
+    public function updatedFilter()
     {
-        $this->projects = $this->filter === 'all'
-            ? Project::all()
-            : Project::where(
-                'project_tier',
-                ProjectTier::from($this->filter)->value
-              )->get();
+        Log::info('Filter changed to: ' . $this->filter);
+
+        $this->loadProjects();
     }
 
-    public function setFilter($tier)
+    public function loadProjects()
     {
-        $this->filter = $tier;
-        $this->loadProjects();
+        if ($this->filter === 'all') {
+            $this->projects = Project::all();
+        } else {
+            $tierValue = ProjectTier::tryFrom($this->filter)?->value;
+            $this->projects = $tierValue
+                ? Project::where('project_tier', $tierValue)->get()
+                : collect(); // empty collection if enum fails
+        }
     }
 
     public function render()
@@ -36,4 +42,3 @@ class Projects extends Component
         return view('livewire.pages.projects')->layout('layouts.app');
     }
 }
- 
