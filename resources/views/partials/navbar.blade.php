@@ -7,7 +7,7 @@
 
         {{-- Logo --}}
         <h1 class="font-bold text-lg">
-            <a wire:navigate="{{ route('home') }}" wire:click="closeMobile"
+            <a href="{{ route('home') }}" wire:click="closeMobile"
             class="px-2 py-1 transition-all duration-300
             {{ $currentRoute === 'home' ? 'text-indigo-400 glow' : 'hover:text-gray-300' }}">
                 {{ auth()->check() && auth()->user()->isAdmin() ? 'Norvin Crujido Admin' : 'Norvin Crujido' }}
